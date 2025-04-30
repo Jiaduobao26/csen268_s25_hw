@@ -37,19 +37,19 @@ class Book {
     };
   }
 
-  factory Book.fromMap(Map<String, dynamic> map) {
-    return Book(
-      title: map['title'] as String,
-      author: map['author'] as String,
-      imageUrl: map['imageUrl'] as String,
-      description: map['description'] as String,
-    );
-  }
+
+  factory Book.fromJson(Map<String, dynamic> json) {
+  return Book(
+    title: json['title'] as String,
+    author: json['author'] as String,
+    description: json['description'] as String,
+    imageUrl: json['imageUrl'] as String,
+  );
+}
 
   String toJson() => json.encode(toMap());
 
-  factory Book.fromJson(String source) => Book.fromMap(json.decode(source) as Map<String, dynamic>);
-
+  
   @override
   String toString() {
     return 'Book(title: $title, author: $author, imageUrl: $imageUrl, description: $description)';
